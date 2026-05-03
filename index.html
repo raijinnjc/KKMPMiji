@@ -3,52 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ── SEO & Open Graph ── -->
   <title>KKMP Miji — Koperasi Kelurahan Merah Putih, Miji Mojokerto</title>
   <meta name="description" content="Koperasi Kelurahan Merah Putih (KKMP) Miji — Bersatu membangun ekonomi kerakyatan yang mandiri dan berdaulat di Kelurahan Miji, Kec. Kranggan, Kota Mojokerto." />
   <meta name="keywords" content="KKMP Miji, Koperasi Kelurahan Merah Putih, Mojokerto, Koperasi, Ekonomi Kerakyatan, Haris Saktiyanto" />
   <meta name="author" content="KKMP Miji" />
-
-  <meta property="og:title"       content="KKMP Miji — Koperasi Kelurahan Merah Putih" />
+  <meta property="og:title" content="KKMP Miji — Koperasi Kelurahan Merah Putih" />
   <meta property="og:description" content="Bersatu membangun ekonomi kerakyatan yang mandiri dan berdaulat di Kelurahan Miji, Kota Mojokerto." />
-  <meta property="og:type"        content="website" />
-  <meta property="og:locale"      content="id_ID" />
-
-  <!-- ── Favicon (ganti dengan favicon asli) ── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="id_ID" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23CC0000'/><text y='.9em' font-size='80' x='10'>🤝</text></svg>" />
-
-  <!-- ── Google Fonts ── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- ── Stylesheet Eksternal ── -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <!-- =============================================
-       NAVIGASI
-  ============================================= -->
+  <!-- NAVIGASI -->
   <nav id="navbar" aria-label="Navigasi Utama KKMP Miji">
     <div class="container nav-inner">
 
-      <!-- Logo -->
+      <!-- LOGO — Upload "logo-kkmp.png" ke GitHub untuk mengganti ikon SVG ini -->
       <a href="#" class="nav-logo">
-        <div class="logo-badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-          </svg>
+        <div class="logo-badge" aria-hidden="true" id="logoBadge" style="background:transparent;overflow:hidden;">
+          <img
+            src="logo-kkmp.png"
+            alt="Logo KKMP Miji"
+            style="width:38px;height:38px;object-fit:contain;border-radius:10px;display:block;"
+            onerror="this.style.display='none';this.parentElement.style.background='#CC0000';document.getElementById('logoSVG').style.display='flex';"
+          />
+          <span id="logoSVG" style="display:none;align-items:center;justify-content:center;width:100%;height:100%;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:22px;height:22px;fill:white;">
+              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+            </svg>
+          </span>
         </div>
         <span class="logo-text">KKMP <span>Miji</span></span>
       </a>
 
-      <!-- Tautan navigasi (desktop) -->
       <ul class="nav-links" role="list">
         <li><a href="#hero">Beranda</a></li>
         <li><a href="#tentang">Tentang Kami</a></li>
@@ -57,22 +49,12 @@
         <li><a href="#cta" class="nav-cta">Bergabung</a></li>
       </ul>
 
-      <!-- Tombol hamburger (mobile) -->
-      <button
-        class="hamburger"
-        id="hamburgerBtn"
-        aria-label="Buka atau tutup menu"
-        aria-expanded="false"
-        aria-controls="mobileMenu"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Buka atau tutup menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- Menu mobile overlay -->
   <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menu Mobile">
     <a href="#hero"      class="mobile-nav-link">Beranda</a>
     <a href="#tentang"   class="mobile-nav-link">Tentang Kami</a>
@@ -82,48 +64,33 @@
   </div>
 
 
-  <!-- =============================================
-       HERO SECTION
-  ============================================= -->
+  <!-- HERO SECTION -->
   <section id="hero" aria-labelledby="hero-title">
     <div class="container" style="display:contents;">
 
-      <!-- Konten teks kiri -->
       <div class="hero-left container" style="display:block; width:90%; max-width:1160px; margin:0 auto; padding-right:0;">
-
-        <!-- Badge status aktif -->
         <div class="hero-badge">
           <span class="dot"></span>
           Koperasi Aktif &bull; Berdampak Nyata
         </div>
-
-        <!-- Judul utama -->
         <h1 class="hero-title" id="hero-title">
           Koperasi Miji,<br/>
           <span class="accent">Bersatu</span><br/>
           untuk Sejahtera
         </h1>
-
-        <!-- Sub-judul -->
         <p class="hero-subtitle">
           KKMP Miji adalah <strong>Koperasi Kelurahan Merah Putih</strong> yang hadir untuk
           memperkuat perekonomian rakyat melalui gotong royong, simpan pinjam, dan
           pemberdayaan usaha warga Kelurahan Miji selaras dengan <strong>Asta Cita</strong>
           Presiden Prabowo Subianto.
         </p>
-
-        <!-- Tombol aksi -->
         <div class="hero-actions">
           <a href="#tentang" class="btn-primary">
             Kenali Kami Lebih Dekat
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <a href="#program" class="btn-outline">Lihat Program</a>
         </div>
-
-        <!-- Statistik ringkas -->
         <div class="hero-stats">
           <div class="stat-item">
             <div class="stat-num">Dummy<span>+</span></div>
@@ -138,20 +105,19 @@
             <div class="stat-label">Fokus Asta Cita</div>
           </div>
         </div>
-      </div><!-- /.hero-left -->
+      </div>
 
-      <!-- Gambar sisi kanan -->
+      <!-- FOTO HERO — Upload "foto-koperasi.jpg" ke GitHub untuk mengganti placeholder -->
       <div class="hero-right" style="padding:80px 40px 80px 0; flex:1; min-width:280px;">
         <div class="hero-image-wrap">
-          <!-- Ganti URL dengan foto asli KKMP Miji -->
           <img
-            src="https://placehold.co/520x580/CC0000/FFFFFF?text=KKMP+Miji&font=playfair-display"
+            src="foto-koperasi.jpg"
             alt="Foto kegiatan Koperasi Kelurahan Merah Putih KKMP Miji"
             width="520"
             height="580"
+            style="object-fit:cover;"
+            onerror="this.onerror=null;this.src='https://placehold.co/520x580/CC0000/FFFFFF?text=Upload+foto-koperasi.jpg+ke+GitHub&font=playfair-display';"
           />
-
-          <!-- Kartu mengambang 1: alamat -->
           <div class="hero-float-card card-1">
             <div class="card-icon">📍</div>
             <div>
@@ -159,8 +125,6 @@
               <div>Jl. Brawijaya 370-A, Miji</div>
             </div>
           </div>
-
-          <!-- Kartu mengambang 2: ketua -->
           <div class="hero-float-card card-2">
             <div class="card-icon">🤝</div>
             <div>
@@ -168,46 +132,35 @@
               <div>Haris Saktiyanto</div>
             </div>
           </div>
-
-          <!-- Pola titik dekoratif -->
           <div class="dots-pattern" aria-hidden="true"></div>
         </div>
-      </div><!-- /.hero-right -->
+      </div>
 
     </div>
   </section>
 
 
-  <!-- =============================================
-       TENTANG KAMI SECTION
-  ============================================= -->
+  <!-- TENTANG KAMI -->
   <section id="tentang" aria-labelledby="tentang-title">
     <div class="container">
       <div class="about-grid">
-
-        <!-- Gambar kiri -->
         <div class="about-image-wrap reveal">
-          <!-- Ganti dengan foto kegiatan nyata KKMP Miji -->
           <img
             src="https://placehold.co/540x600/1A1A1A/FFFFFF?text=Tentang+KKMP+Miji&font=playfair-display"
             alt="Kegiatan gotong royong anggota KKMP Miji"
             width="540"
             height="600"
           />
-          <!-- Lencana tahun berdiri -->
           <div class="about-badge">
             <div class="badge-num">2025</div>
             <div class="badge-text">Tahun Berdiri</div>
           </div>
         </div>
-
-        <!-- Konten teks kanan -->
         <div class="about-content reveal" style="transition-delay:0.15s;">
           <span class="section-tag">Tentang Kami</span>
           <h2 class="section-title" id="tentang-title">
             Koperasi Rakyat<br/>dari <span>Kelurahan Miji</span>
           </h2>
-
           <p class="about-lead">
             KKMP Miji (Koperasi Kelurahan Merah Putih) lahir dari semangat gotong royong
             warga Kelurahan Miji untuk bersama-sama membangun perekonomian lokal yang
@@ -215,262 +168,130 @@
             selaku Ketua, KKMP Miji terus tumbuh menjadi pilar ekonomi kerakyatan yang
             nyata di Kota Mojokerto.
           </p>
-
-          <!-- Visi, Misi, Nilai -->
           <div class="vmv-list">
             <div class="vmv-item">
-              <div>
-                <h4>Visi</h4>
-                <p>
-                  Menjadi koperasi kelurahan terdepan yang mendorong kemandirian ekonomi
-                  rakyat, swasembada usaha, dan kesejahteraan seluruh warga Miji selaras
-                  cita-cita nasional.
-                </p>
-              </div>
+              <div><h4>Visi</h4><p>Menjadi koperasi kelurahan terdepan yang mendorong kemandirian ekonomi rakyat, swasembada usaha, dan kesejahteraan seluruh warga Miji selaras cita-cita nasional.</p></div>
             </div>
             <div class="vmv-item">
-              <div>
-                <h4>Misi</h4>
-                <p>
-                  Memberdayakan anggota melalui simpan pinjam, pengembangan UMKM, dan
-                  kemitraan usaha yang adil demi mewujudkan Indonesia Emas 2045.
-                </p>
-              </div>
+              <div><h4>Misi</h4><p>Memberdayakan anggota melalui simpan pinjam, pengembangan UMKM, dan kemitraan usaha yang adil demi mewujudkan Indonesia Emas 2045.</p></div>
             </div>
             <div class="vmv-item">
-              <div>
-                <h4>Nilai Utama</h4>
-                <p>
-                  Gotong royong, transparansi, keadilan, dan keberpihakan pada anggota
-                  menjadi fondasi setiap langkah KKMP Miji.
-                </p>
-              </div>
+              <div><h4>Nilai Utama</h4><p>Gotong royong, transparansi, keadilan, dan keberpihakan pada anggota menjadi fondasi setiap langkah KKMP Miji.</p></div>
             </div>
           </div>
-        </div><!-- /.about-content -->
-
+        </div>
       </div>
     </div>
   </section>
 
 
-  <!-- =============================================
-       ASTA CITA SECTION
-       8 Prioritas Presiden Prabowo yang menjadi
-       landasan program KKMP Miji
-  ============================================= -->
+  <!-- ASTA CITA -->
   <section id="asta-cita" aria-labelledby="asta-title">
     <div class="container">
-
       <div class="asta-header reveal">
-        <span class="section-tag" style="background:rgba(204,0,0,0.25); color:#FF6B6B; border-color:rgba(204,0,0,0.3);">
-          Landasan Kami
-        </span>
-        <h2 class="section-title" id="asta-title">
-          Selaras dengan<br/><span>Asta Cita</span> Presiden
-        </h2>
-        <p>
-          Seluruh program KKMP Miji berlandaskan pada 8 Cita-Cita (Asta Cita) Presiden
-          Prabowo Subianto sebagai kompas gerak kami.
-        </p>
+        <span class="section-tag" style="background:rgba(204,0,0,0.25); color:#FF6B6B; border-color:rgba(204,0,0,0.3);">Landasan Kami</span>
+        <h2 class="section-title" id="asta-title">Selaras dengan<br/><span>Asta Cita</span> Presiden</h2>
+        <p>Seluruh program KKMP Miji berlandaskan pada 8 Cita-Cita (Asta Cita) Presiden Prabowo Subianto sebagai kompas gerak kami.</p>
       </div>
-
-      <!-- Grid 8 kartu Asta Cita -->
       <div class="asta-grid reveal-stagger">
-        <div class="asta-card">
-          <div class="asta-num">01</div>
-          <h4>Memperkokoh Ideologi Pancasila &amp; Demokrasi</h4>
-          <p>Membangun fondasi bangsa yang kuat berlandaskan Pancasila, UUD 1945, dan semangat kebhinekaan.</p>
-        </div>
-        <div class="asta-card">
-          <div class="asta-num">02</div>
-          <h4>Memantapkan Sistem Pertahanan &amp; Keamanan</h4>
-          <p>Memastikan kedaulatan negara terjaga dan rakyat hidup dalam kondisi aman dan damai.</p>
-        </div>
-        <div class="asta-card">
-          <div class="asta-num">03</div>
-          <h4>Swasembada Pangan, Energi &amp; Air</h4>
-          <p>Mewujudkan kemandirian nasional dalam pemenuhan kebutuhan dasar demi ketahanan rakyat.</p>
-        </div>
-        <div class="asta-card">
-          <div class="asta-num">04</div>
-          <h4>Memperkuat Pembangunan SDM Unggul</h4>
-          <p>Investasi pada pendidikan, kesehatan, dan karakter anak bangsa demi generasi emas 2045.</p>
-        </div>
-        <div class="asta-card">
-          <div class="asta-num">05</div>
-          <h4>Hilirisasi &amp; Industrialisasi Nasional</h4>
-          <p>Mendorong nilai tambah sumber daya alam dalam negeri agar manfaatnya dirasakan rakyat.</p>
-        </div>
-        <div class="asta-card">
-          <div class="asta-num">06</div>
-          <h4>Membangun dari Desa &amp; Daerah Terdepan</h4>
-          <p>Pemerataan pembangunan hingga ke daerah tertinggal, terdepan, dan terluar.</p>
-        </div>
-        <div class="asta-card">
-          <div class="asta-num">07</div>
-          <h4>Keadilan bagi Seluruh Rakyat Indonesia</h4>
-          <p>Mewujudkan sistem hukum dan ekonomi yang adil serta berpihak pada kepentingan rakyat banyak.</p>
-        </div>
-        <div class="asta-card">
-          <div class="asta-num">08</div>
-          <h4>Reformasi Politik, Hukum &amp; Birokrasi</h4>
-          <p>Membangun tata kelola pemerintahan yang bersih, transparan, dan berorientasi pada pelayanan.</p>
-        </div>
+        <div class="asta-card"><div class="asta-num">01</div><h4>Memperkokoh Ideologi Pancasila &amp; Demokrasi</h4><p>Membangun fondasi bangsa yang kuat berlandaskan Pancasila, UUD 1945, dan semangat kebhinekaan.</p></div>
+        <div class="asta-card"><div class="asta-num">02</div><h4>Memantapkan Sistem Pertahanan &amp; Keamanan</h4><p>Memastikan kedaulatan negara terjaga dan rakyat hidup dalam kondisi aman dan damai.</p></div>
+        <div class="asta-card"><div class="asta-num">03</div><h4>Swasembada Pangan, Energi &amp; Air</h4><p>Mewujudkan kemandirian nasional dalam pemenuhan kebutuhan dasar demi ketahanan rakyat.</p></div>
+        <div class="asta-card"><div class="asta-num">04</div><h4>Memperkuat Pembangunan SDM Unggul</h4><p>Investasi pada pendidikan, kesehatan, dan karakter anak bangsa demi generasi emas 2045.</p></div>
+        <div class="asta-card"><div class="asta-num">05</div><h4>Hilirisasi &amp; Industrialisasi Nasional</h4><p>Mendorong nilai tambah sumber daya alam dalam negeri agar manfaatnya dirasakan rakyat.</p></div>
+        <div class="asta-card"><div class="asta-num">06</div><h4>Membangun dari Desa &amp; Daerah Terdepan</h4><p>Pemerataan pembangunan hingga ke daerah tertinggal, terdepan, dan terluar.</p></div>
+        <div class="asta-card"><div class="asta-num">07</div><h4>Keadilan bagi Seluruh Rakyat Indonesia</h4><p>Mewujudkan sistem hukum dan ekonomi yang adil serta berpihak pada kepentingan rakyat banyak.</p></div>
+        <div class="asta-card"><div class="asta-num">08</div><h4>Reformasi Politik, Hukum &amp; Birokrasi</h4><p>Membangun tata kelola pemerintahan yang bersih, transparan, dan berorientasi pada pelayanan.</p></div>
       </div>
-
     </div>
   </section>
 
 
-  <!-- =============================================
-       PROGRAM UTAMA SECTION
-  ============================================= -->
+  <!-- PROGRAM -->
   <section id="program" aria-labelledby="program-title">
     <div class="container">
-
       <div class="program-header reveal">
         <div>
           <span class="section-tag">Program Utama</span>
-          <h2 class="section-title" id="program-title">
-            Apa yang Kami<br/><span>Kerjakan?</span>
-          </h2>
+          <h2 class="section-title" id="program-title">Apa yang Kami<br/><span>Kerjakan?</span></h2>
         </div>
-        <p>
-          Kami merancang program yang solutif, terukur, dan berdampak langsung bagi
-          anggota koperasi dan warga Kelurahan Miji, Kota Mojokerto.
-        </p>
+        <p>Kami merancang program yang solutif, terukur, dan berdampak langsung bagi anggota koperasi dan warga Kelurahan Miji, Kota Mojokerto.</p>
       </div>
-
       <div class="program-grid reveal-stagger">
-
-        <!-- Program 1 -->
         <div class="prog-card">
-          <div class="prog-icon">💰</div>
-          <h3>Simpan Pinjam</h3>
-          <p>
-            Layanan simpan pinjam untuk membantu anggota mengakses modal usaha
-            dengan bunga ringan dan proses yang mudah.
-          </p>
-          <a href="#" class="prog-link">
-            Pelajari Lebih Lanjut
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+          <div class="prog-icon">💰</div><h3>Simpan Pinjam</h3>
+          <p>Layanan simpan pinjam untuk membantu anggota mengakses modal usaha dengan bunga ringan dan proses yang mudah.</p>
+          <a href="#" class="prog-link">Pelajari Lebih Lanjut <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-
-        <!-- Program 2 -->
         <div class="prog-card">
-          <div class="prog-icon">🛒</div>
-          <h3>Unit Usaha Warung</h3>
-          <p>
-            Pengelolaan warung sembako koperasi sebagai pusat distribusi kebutuhan
-            pokok warga dengan harga terjangkau dan stabil.
-          </p>
-          <a href="#" class="prog-link">
-            Pelajari Lebih Lanjut
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+          <div class="prog-icon">🛒</div><h3>Unit Usaha Warung</h3>
+          <p>Pengelolaan warung sembako koperasi sebagai pusat distribusi kebutuhan pokok warga dengan harga terjangkau dan stabil.</p>
+          <a href="#" class="prog-link">Pelajari Lebih Lanjut <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-
-        <!-- Program 3 -->
         <div class="prog-card">
-          <div class="prog-icon">💼</div>
-          <h3>Pemberdayaan UMKM</h3>
-          <p>
-            Pendampingan dan permodalan bagi pelaku UMKM anggota koperasi,
-            termasuk pelatihan manajemen usaha dan pemasaran digital.
-          </p>
-          <a href="#" class="prog-link">
-            Pelajari Lebih Lanjut
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+          <div class="prog-icon">💼</div><h3>Pemberdayaan UMKM</h3>
+          <p>Pendampingan dan permodalan bagi pelaku UMKM anggota koperasi, termasuk pelatihan manajemen usaha dan pemasaran digital.</p>
+          <a href="#" class="prog-link">Pelajari Lebih Lanjut <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-
-        <!-- Program 4 -->
         <div class="prog-card">
-          <div class="prog-icon">🌾</div>
-          <h3>Ketahanan Pangan</h3>
-          <p>
-            Inisiatif ketahanan pangan lokal melalui distribusi sembako murah,
-            budidaya urban farming, dan pengelolaan bank benih komunitas.
-          </p>
-          <a href="#" class="prog-link">
-            Pelajari Lebih Lanjut
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+          <div class="prog-icon">🌾</div><h3>Ketahanan Pangan</h3>
+          <p>Inisiatif ketahanan pangan lokal melalui distribusi sembako murah, budidaya urban farming, dan pengelolaan bank benih komunitas.</p>
+          <a href="#" class="prog-link">Pelajari Lebih Lanjut <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-
       </div>
     </div>
   </section>
 
 
-  <!-- =============================================
-       CALL TO ACTION SECTION
-  ============================================= -->
+  <!-- CTA -->
   <section id="cta" aria-labelledby="cta-title">
     <div class="container">
       <div class="cta-box reveal">
         <div class="cta-text">
           <span class="section-tag">Bergabung Sekarang</span>
-          <h2 class="section-title" id="cta-title">
-            Jadilah Anggota<br/><span>KKMP Miji</span>
-          </h2>
+          <h2 class="section-title" id="cta-title">Jadilah Anggota<br/><span>KKMP Miji</span></h2>
           <p>Bergabunglah dan rasakan manfaat nyata koperasi bersama warga Kelurahan Miji.</p>
         </div>
         <a href="mailto:kkmp.miji@gmail.com" class="cta-btn">
           Hubungi Kami
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
   </section>
 
 
-  <!-- =============================================
-       FOOTER
-  ============================================= -->
+  <!-- FOOTER -->
   <footer id="footer" aria-label="Footer KKMP Miji">
     <div class="container">
-
       <div class="footer-grid">
 
-        <!-- Kolom 1: Branding & Media Sosial -->
         <div class="footer-brand">
           <div class="logo-text">KKMP <span>Miji</span></div>
-          <p>
-            Koperasi Kelurahan Merah Putih (KKMP) Miji — Kel. Miji, Kec. Kranggan,
-            Kota Mojokerto. Bersatu membangun ekonomi kerakyatan yang berdaulat.
-          </p>
+          <p>Koperasi Kelurahan Merah Putih (KKMP) Miji — Kel. Miji, Kec. Kranggan, Kota Mojokerto. Bersatu membangun ekonomi kerakyatan yang berdaulat.</p>
           <div class="social-links" aria-label="Media Sosial KKMP Miji">
-            <!-- Instagram — ganti href dengan URL asli -->
-            <a href="#" class="social-link" aria-label="Instagram KKMP Miji">
+
+            <!-- INSTAGRAM — sudah aktif tersambung -->
+            <a href="https://www.instagram.com/kmp_kelurahan_miji/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram KKMP Miji">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
               </svg>
             </a>
+
             <!-- Facebook -->
             <a href="#" class="social-link" aria-label="Facebook KKMP Miji">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
             </a>
+
             <!-- Twitter/X -->
             <a href="#" class="social-link" aria-label="Twitter KKMP Miji">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
+
             <!-- YouTube -->
             <a href="#" class="social-link" aria-label="YouTube KKMP Miji">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -480,7 +301,6 @@
           </div>
         </div>
 
-        <!-- Kolom 2: Navigasi -->
         <div class="footer-col">
           <h5>Navigasi</h5>
           <ul role="list">
@@ -492,7 +312,6 @@
           </ul>
         </div>
 
-        <!-- Kolom 3: Program -->
         <div class="footer-col">
           <h5>Program</h5>
           <ul role="list">
@@ -503,7 +322,6 @@
           </ul>
         </div>
 
-        <!-- Kolom 4: Kontak -->
         <div class="footer-col">
           <h5>Kontak</h5>
           <div class="contact-list">
@@ -529,23 +347,15 @@
           </div>
         </div>
 
-      </div><!-- /.footer-grid -->
-
-      <!-- Baris hak cipta -->
-      <div class="footer-bottom">
-        <span>© 2025 KKMP Miji — Koperasi Kelurahan Merah Putih. Hak Cipta Dilindungi.</span>
-        <span>
-          Dirancang dengan ❤️ untuk Miji &mdash;
-          <a href="#">Kebijakan Privasi</a>
-        </span>
       </div>
 
+      <div class="footer-bottom">
+        <span>© 2025 KKMP Miji — Koperasi Kelurahan Merah Putih. Hak Cipta Dilindungi.</span>
+        <span>Dirancang dengan ❤️ untuk Miji &mdash; <a href="#">Kebijakan Privasi</a></span>
+      </div>
     </div>
   </footer>
 
-
-  <!-- ── JavaScript Eksternal (dipanggil sebelum </body>) ── -->
   <script src="script.js"></script>
-
 </body>
 </html>
