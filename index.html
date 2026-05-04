@@ -30,23 +30,25 @@
       box-shadow: 0 8px 40px rgba(0,0,0,0.15);
     }
 
-    .slide {
-      display: none;
-      width: 100%;
+    /* Slide horizontal — semua slide berjajar, container geser */
+    .slideshow-wrap {
+      overflow: hidden !important;
+    }
+
+    .slides-track {
+      display: flex;
+      width: 800%;
       height: 100%;
-      position: absolute;
-      top: 0; left: 0;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .slide.active {
-      display: block;
-      animation: fadeSlide 0.6s ease;
+    .slide {
+      flex: 0 0 12.5%; /* 100% / 8 slide */
+      height: 100%;
+      position: relative;
     }
 
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: scale(1.03); }
-      to   { opacity: 1; transform: scale(1); }
-    }
+    .slide.active { /* tidak dipakai untuk layout, hanya dots */ }
 
     .slide img {
       width: 100%;
@@ -111,6 +113,14 @@
       background: #fff;
       transform: scale(1.3);
     }
+
+    /* Footer 2 kolom setelah hapus nav & program */
+    .footer-grid {
+      grid-template-columns: 1.6fr 1fr !important;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr !important; }
+    }
   </style>
 </head>
 <body>
@@ -170,15 +180,15 @@
           Koperasi Aktif &bull; Berdampak Nyata
         </div>
         <h1 class="hero-title" id="hero-title">
-          Koperasi Miji,<br/>
-          <span class="accent">Bersatu</span><br/>
-          untuk Sejahtera
+          Modal Usaha,<br/>
+          Sembako Murah,<br/>
+          <span class="accent">untuk Warga Miji</span>
         </h1>
         <p class="hero-subtitle">
-          KKMP Miji adalah <strong>Koperasi Kelurahan Merah Putih</strong> yang hadir untuk
-          memperkuat perekonomian rakyat melalui gotong royong, simpan pinjam, dan
-          pemberdayaan usaha warga Kelurahan Miji selaras dengan <strong>Asta Cita</strong>
-          Presiden Prabowo Subianto.
+          KKMP Miji hadir di Kelurahan Miji sebagai koperasi yang memberikan
+          akses <strong>simpan pinjam modal usaha</strong>, distribusi
+          <strong>sembako harga terjangkau</strong>, dan pendampingan UMKM
+          — langsung untuk warga, tanpa birokrasi rumit.
         </p>
         <div class="hero-actions">
           <a href="#tentang" class="btn-primary">
@@ -248,7 +258,8 @@
         <div class="about-image-wrap reveal">
           <div class="slideshow-wrap" id="slideshowWrap">
 
-            <!-- 8 Slide Foto -->
+            <!-- 8 Slide Foto — dibungkus track untuk animasi geser -->
+            <div class="slides-track" id="slidesTrack">
             <div class="slide active">
               <img src="foto-1.jpg" alt="Kegiatan KKMP Miji 1"
                 onerror="this.src='https://placehold.co/540x600/CC0000/FFFFFF?text=foto-1.jpg&font=playfair-display'"/>
@@ -281,6 +292,7 @@
               <img src="foto-8.jpg" alt="Kegiatan KKMP Miji 8"
                 onerror="this.src='https://placehold.co/540x600/990000/FFFFFF?text=foto-8.jpg&font=playfair-display'"/>
             </div>
+            </div><!-- /slides-track -->
 
             <!-- Tombol navigasi kiri/kanan -->
             <button class="slide-btn slide-prev" onclick="changeSlide(-1)" aria-label="Foto sebelumnya">&#8249;</button>
@@ -451,27 +463,6 @@
         </div>
 
         <div class="footer-col">
-          <h5>Navigasi</h5>
-          <ul role="list">
-            <li><a href="#hero">Beranda</a></li>
-            <li><a href="#tentang">Tentang Kami</a></li>
-            <li><a href="#asta-cita">Asta Cita</a></li>
-            <li><a href="#program">Program</a></li>
-            <li><a href="#cta">Bergabung</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5>Program</h5>
-          <ul role="list">
-            <li><a href="#">Simpan Pinjam</a></li>
-            <li><a href="#">Unit Usaha Warung</a></li>
-            <li><a href="#">Pemberdayaan UMKM</a></li>
-            <li><a href="#">Ketahanan Pangan</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
           <h5>Kontak</h5>
           <div class="contact-list">
             <div class="contact-item">
@@ -507,25 +498,24 @@
 
   <script src="script.js"></script>
   <script>
-    /* ── SLIDESHOW LOGIC ── */
+    /* ── SLIDESHOW LOGIC — animasi geser horizontal ── */
     (function() {
       var current = 0;
       var total   = 8;
       var timer;
+      var track   = document.getElementById('slidesTrack');
+      var dots    = document.querySelectorAll('.dot-ind');
 
       function showSlide(n) {
-        var slides = document.querySelectorAll('.slide');
-        var dots   = document.querySelectorAll('.dot-ind');
         current = (n + total) % total;
-        slides.forEach(function(s, i) {
-          s.classList.toggle('active', i === current);
-        });
+        // Geser track secara horizontal
+        track.style.transform = 'translateX(-' + (current * 12.5) + '%)';
+        // Update titik indikator
         dots.forEach(function(d, i) {
           d.classList.toggle('active', i === current);
         });
       }
 
-      // Ekspor ke global agar bisa dipanggil dari onclick HTML
       window.changeSlide = function(dir) {
         showSlide(current + dir);
         resetTimer();
@@ -541,7 +531,7 @@
         timer = setInterval(function() { showSlide(current + 1); }, 4000);
       }
 
-      // Mulai autoplay otomatis tiap 4 detik
+      // Autoplay tiap 4 detik
       timer = setInterval(function() { showSlide(current + 1); }, 4000);
     })();
   </script>
