@@ -966,6 +966,149 @@ ul {
 
 
 /* ─────────────────────────────────────────
+   8b. E-KATALOG CTA SECTION
+───────────────────────────────────────── */
+#ekatalog {
+  padding: 110px 0;
+  background: var(--red);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Ornamen lingkaran latar belakang */
+#ekatalog::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: -120px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+}
+
+#ekatalog::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.ekatalog-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.ekatalog-icon {
+  font-size: 3.2rem;
+  margin-bottom: 28px;
+  display: block;
+  animation: ekatalog-float 3.2s ease-in-out infinite;
+}
+
+@keyframes ekatalog-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+#ekatalog .section-title {
+  color: var(--white);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+}
+
+#ekatalog .section-title span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+#ekatalog p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.05rem;
+  margin: 20px 0 40px;
+  line-height: 1.75;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tombol E-Katalog */
+.ekatalog-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  color: var(--red);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 18px 48px;
+  border-radius: 100px;
+  border: 2px solid var(--white);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  min-height: 56px; /* touch-friendly */
+}
+
+.ekatalog-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.ekatalog-btn:hover {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.30);
+}
+
+.ekatalog-btn:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  #ekatalog {
+    padding: 80px 0;
+  }
+
+  #ekatalog p {
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+  }
+
+  .ekatalog-btn {
+    padding: 16px 36px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #ekatalog {
+    padding: 64px 0;
+  }
+
+  .ekatalog-btn {
+    padding: 15px 28px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* ─────────────────────────────────────────
    9. FOOTER
 ───────────────────────────────────────── */
 #footer {
