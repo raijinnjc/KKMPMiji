@@ -4,122 +4,149 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KKMP Miji — Koperasi Kelurahan Merah Putih</title>
-  <meta name="description" content="Koperasi Kelurahan Merah Putih (KKMP) Miji — Bersatu membangun ekonomi kerakyatan yang mandiri dan berdaulat di Kelurahan Miji, Kec. Kranggan, Kota Mojokerto." />
-  <meta name="keywords" content="KKMP Miji, Koperasi Kelurahan Merah Putih, Mojokerto, Koperasi, Ekonomi Kerakyatan, Haris Saktiyanto" />
+  <meta name="description" content="KKMP Miji — Pusat layanan ekonomi warga Kelurahan Miji: gerai sembako, distribusi energi, dan layanan pembayaran digital." />
+  <meta name="keywords" content="KKMP Miji, Koperasi Kelurahan Merah Putih, Mojokerto, Sembako, Haris Saktiyanto" />
   <meta name="author" content="KKMP Miji" />
   <meta property="og:title" content="KKMP Miji — Koperasi Kelurahan Merah Putih" />
-  <meta property="og:description" content="Bersatu membangun ekonomi kerakyatan yang mandiri dan berdaulat di Kelurahan Miji, Kota Mojokerto." />
+  <meta property="og:description" content="Pusat layanan ekonomi warga Kelurahan Miji: sembako, distribusi energi, dan pembayaran digital." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="id_ID" />
-  <!-- Favicon logo KKMP Miji — ?v=2 memaksa browser reload cache -->
-  <link rel="icon"       href="logo-kkmp.png?v=2" type="image/png" sizes="any" />
-  <link rel="apple-touch-icon" href="logo-kkmp.png?v=2" />
+  <meta property="og:image" content="foto-koperasi.jpg" />
+  <link rel="icon" href="logo-kkmp.png?v=3" type="image/png" sizes="any" />
+  <link rel="apple-touch-icon" href="logo-kkmp.png?v=3" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── SLIDESHOW TENTANG KAMI ── */
-    .slideshow-wrap {
-      position: relative;
-      width: 100%;
-      border-radius: 24px;
-      overflow: hidden;
-      aspect-ratio: 9/10;
-      background: #1a1a1a;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    /* SLIDESHOW */
+    .slideshow-wrap{position:relative;width:100%;border-radius:24px;overflow:hidden!important;aspect-ratio:9/10;background:#1a1a1a;box-shadow:0 8px 40px rgba(0,0,0,.15)}
+    .slides-track{display:flex;width:800%;height:100%;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+    .slide{flex:0 0 12.5%;height:100%;position:relative}
+    .slide img{width:100%;height:100%;object-fit:cover;display:block;border-radius:0}
+    .slide-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:none;border-radius:50%;width:44px;height:44px;font-size:1.4rem;cursor:pointer;z-index:10;color:#CC0000;box-shadow:0 2px 12px rgba(0,0,0,.15);transition:background .2s,transform .2s;display:flex;align-items:center;justify-content:center}
+    .slide-btn:hover{background:#CC0000;color:#fff;transform:translateY(-50%) scale(1.1)}
+    .slide-prev{left:12px}.slide-next{right:12px}
+    .slide-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
+    .dot-ind{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:background .3s,transform .3s}
+    .dot-ind.active{background:#fff;transform:scale(1.3)}
+
+    /* VISI MISI */
+    #visi-misi{padding:100px 0;background:var(--white)}
+    .vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+    .vm-card{background:var(--off-white);border-radius:20px;padding:36px 32px;border-top:4px solid var(--red);transition:box-shadow .3s}
+    .vm-card:hover{box-shadow:0 12px 40px rgba(204,0,0,.10)}
+    .vm-card-label{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+    .vm-card h3{font-family:var(--font-display);font-size:1.3rem;font-weight:900;color:var(--dark);line-height:1.3;margin-bottom:16px}
+    .vm-card p{font-size:.9rem;color:var(--gray-700);line-height:1.75}
+    .misi-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px}
+    .misi-list li{display:flex;gap:12px;align-items:flex-start;font-size:.9rem;color:var(--gray-700);line-height:1.6}
+    .misi-list li::before{content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--red);margin-top:8px}
+    .tujuan-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:24px}
+    .tujuan-item{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:var(--off-white);border-radius:var(--radius);border-left:3px solid var(--red);transition:var(--transition)}
+    .tujuan-item:hover{background:rgba(204,0,0,.06);transform:translateX(4px)}
+    .tujuan-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+    .tujuan-item p{font-size:.875rem;color:var(--gray-700);line-height:1.6}
+
+    /* STRUKTUR ORGANISASI */
+    #struktur{padding:100px 0;background:var(--off-white)}
+    .struktur-header{text-align:center;max-width:600px;margin:0 auto 52px}
+    .struktur-img-wrap{text-align:center;background:var(--white);border-radius:24px;padding:40px;box-shadow:var(--shadow)}
+    .org-chart{font-family:var(--font-body);padding:12px 0}
+    .org-level{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+    .org-box{background:var(--white);border:2px solid var(--gray-100);border-radius:12px;padding:14px 20px;text-align:center;min-width:140px;transition:var(--transition)}
+    .org-box:hover{border-color:var(--red);box-shadow:0 4px 16px rgba(204,0,0,.12)}
+    .org-box.primary{background:var(--red);border-color:var(--red);color:white}
+    .org-box.secondary{background:var(--off-white);border-color:var(--gray-300)}
+    .org-box.pengawas{background:var(--dark);border-color:var(--dark);color:white}
+    .org-role{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.75;margin-bottom:4px}
+    .org-name{font-family:var(--font-display);font-size:.95rem;font-weight:700;line-height:1.3}
+    .org-line{width:2px;background:var(--gray-300);margin:0 auto;height:28px}
+
+    /* POTENSI */
+    #potensi{padding:100px 0;background:var(--white)}
+    .potensi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+    .potensi-card{background:var(--off-white);border-radius:20px;padding:32px 26px;border:1px solid var(--gray-100);transition:var(--transition);position:relative;overflow:hidden}
+    .potensi-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+    .potensi-card:hover{box-shadow:0 12px 40px rgba(204,0,0,.10);transform:translateY(-4px);border-color:rgba(204,0,0,.15)}
+    .potensi-card:hover::after{transform:scaleX(1)}
+    .potensi-icon{width:52px;height:52px;background:rgba(204,0,0,.08);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;transition:var(--transition)}
+    .potensi-card:hover .potensi-icon{background:var(--red)}
+    .potensi-card h4{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:10px}
+    .potensi-card p{font-size:.875rem;color:var(--gray-500);line-height:1.7}
+
+    /* STRATEGI */
+    #strategi{padding:100px 0;background:var(--dark);position:relative;overflow:hidden}
+    #strategi::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+    .strategi-header{text-align:center;max-width:640px;margin:0 auto 52px}
+    .strategi-header .section-title{color:var(--white)}
+    .strategi-header .section-title span{color:#FF6B6B}
+    .strategi-header p{color:rgba(255,255,255,.6);margin-top:14px}
+    .strategi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .strategi-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:28px 24px;position:relative;overflow:hidden;transition:var(--transition)}
+    .strategi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform var(--transition)}
+    .strategi-card:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.15);transform:translateY(-4px)}
+    .strategi-card:hover::before{transform:scaleX(1)}
+    .strategi-num{font-family:var(--font-display);font-size:2.5rem;font-weight:900;color:rgba(204,0,0,.25);line-height:1;margin-bottom:14px}
+    .strategi-card h4{font-weight:700;font-size:.92rem;color:var(--white);line-height:1.45;margin-bottom:10px}
+    .strategi-card p{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.65}
+
+    /* TARGET 5 TAHUN */
+    #target{padding:100px 0;background:var(--off-white)}
+    .target-header{text-align:center;max-width:600px;margin:0 auto 52px}
+    .target-table-wrap{overflow-x:auto;border-radius:20px;box-shadow:var(--shadow)}
+    table.target-table{width:100%;border-collapse:collapse;background:var(--white);font-size:.9rem}
+    .target-table thead tr{background:var(--red);color:var(--white)}
+    .target-table thead th{padding:18px 24px;text-align:left;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase}
+    .target-table tbody tr{border-bottom:1px solid var(--gray-100);transition:background .2s}
+    .target-table tbody tr:last-child{border-bottom:none}
+    .target-table tbody tr:hover{background:rgba(204,0,0,.04)}
+    .target-table tbody td{padding:20px 24px;color:var(--gray-700);vertical-align:top;line-height:1.65}
+    .target-table tbody td:first-child{font-family:var(--font-display);font-size:1.2rem;font-weight:900;color:var(--red);white-space:nowrap;width:90px}
+    .target-table tbody td:nth-child(2){font-weight:600;color:var(--dark);width:240px}
+    .target-bullets{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px}
+    .target-bullets li{display:flex;gap:8px;align-items:flex-start;font-size:.85rem;color:var(--gray-500)}
+    .target-bullets li::before{content:'v';color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px}
+
+    /* CTA KATALOG */
+    #cta-katalog{padding:80px 0;background:var(--white)}
+    .katalog-box{background:linear-gradient(135deg,#CC0000 0%,#990000 100%);border-radius:28px;padding:72px 80px;display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative;overflow:hidden}
+    .katalog-box::before{content:'';position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.07)}
+    .katalog-box::after{content:'';position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.05)}
+    .katalog-text .section-tag{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.3);color:var(--white)}
+    .katalog-text .section-title{color:var(--white)}
+    .katalog-text .section-title span{color:rgba(255,255,255,.7)}
+    .katalog-text p{color:rgba(255,255,255,.8);margin-top:12px;font-size:1rem;max-width:480px}
+    .katalog-btn{display:inline-flex;align-items:center;gap:10px;background:var(--white);color:var(--red);font-family:var(--font-body);font-size:1rem;font-weight:700;padding:18px 40px;border-radius:100px;border:2px solid var(--white);cursor:pointer;transition:var(--transition);flex-shrink:0;white-space:nowrap;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+    .katalog-btn:hover{background:var(--dark);border-color:var(--dark);color:var(--white);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.25)}
+
+    /* KONTAK */
+    #kontak-langsung{padding:80px 0;background:var(--off-white)}
+    .kontak-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+    .kontak-card{background:var(--white);border-radius:20px;padding:36px 28px;text-align:center;border:1px solid var(--gray-100);transition:var(--transition)}
+    .kontak-card:hover{box-shadow:0 12px 40px rgba(204,0,0,.10);transform:translateY(-4px);border-color:rgba(204,0,0,.15)}
+    .kontak-card .k-icon{font-size:2.5rem;margin-bottom:16px;display:block}
+    .kontak-card h4{font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-500);margin-bottom:10px}
+    .kontak-card a,.kontak-card p{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--dark);text-decoration:none;line-height:1.4;transition:color .2s}
+    .kontak-card a:hover{color:var(--red)}
+    .kontak-card .k-sub{font-family:var(--font-body);font-size:.82rem;color:var(--gray-500);font-weight:400;margin-top:6px;display:block}
+
+    /* FOOTER */
+    .footer-grid{grid-template-columns:1.6fr 1fr!important}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .potensi-grid,.strategi-grid{grid-template-columns:repeat(2,1fr)}
+      .vm-grid,.tujuan-grid{grid-template-columns:1fr}
+      .katalog-box{padding:52px 48px}
+      .kontak-grid{grid-template-columns:repeat(2,1fr)}
     }
-
-    /* Slide horizontal — semua slide berjajar, container geser */
-    .slideshow-wrap {
-      overflow: hidden !important;
-    }
-
-    .slides-track {
-      display: flex;
-      width: 800%;
-      height: 100%;
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .slide {
-      flex: 0 0 12.5%; /* 100% / 8 slide */
-      height: 100%;
-      position: relative;
-    }
-
-    .slide.active { /* tidak dipakai untuk layout, hanya dots */ }
-
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      border-radius: 0;
-    }
-
-    /* Tombol prev/next */
-    .slide-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.9);
-      border: none;
-      border-radius: 50%;
-      width: 44px;
-      height: 44px;
-      font-size: 1.4rem;
-      line-height: 1;
-      cursor: pointer;
-      z-index: 10;
-      color: #CC0000;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-      transition: background 0.2s, transform 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .slide-btn:hover {
-      background: #CC0000;
-      color: #fff;
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .slide-prev { left: 12px; }
-    .slide-next { right: 12px; }
-
-    /* Titik indikator */
-    .slide-dots {
-      position: absolute;
-      bottom: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 10;
-    }
-
-    .dot-ind {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    .dot-ind.active {
-      background: #fff;
-      transform: scale(1.3);
-    }
-
-    /* Footer 2 kolom setelah hapus nav & program */
-    .footer-grid {
-      grid-template-columns: 1.6fr 1fr !important;
-    }
-    @media (max-width: 768px) {
-      .footer-grid { grid-template-columns: 1fr !important; }
+    @media(max-width:768px){
+      .potensi-grid,.strategi-grid,.kontak-grid{grid-template-columns:1fr}
+      .katalog-box{flex-direction:column;text-align:center;padding:48px 28px}
+      .katalog-text p{max-width:100%}
+      .footer-grid{grid-template-columns:1fr!important}
+      .target-table thead th,.target-table tbody td{padding:14px 16px}
     }
   </style>
 </head>
@@ -128,16 +155,11 @@
   <!-- NAVIGASI -->
   <nav id="navbar" aria-label="Navigasi Utama KKMP Miji">
     <div class="container nav-inner">
-
-      <!-- LOGO — Upload "logo-kkmp.png" ke GitHub untuk mengganti ikon SVG ini -->
       <a href="#" class="nav-logo">
         <div class="logo-badge" aria-hidden="true" id="logoBadge" style="background:transparent;overflow:hidden;">
-          <img
-            src="logo-kkmp.png"
-            alt="Logo KKMP Miji"
+          <img src="logo-kkmp.png?v=3" alt="Logo KKMP Miji"
             style="width:38px;height:38px;object-fit:contain;border-radius:10px;display:block;"
-            onerror="this.style.display='none';this.parentElement.style.background='#CC0000';document.getElementById('logoSVG').style.display='flex';"
-          />
+            onerror="this.style.display='none';this.parentElement.style.background='#CC0000';document.getElementById('logoSVG').style.display='flex';" />
           <span id="logoSVG" style="display:none;align-items:center;justify-content:center;width:100%;height:100%;">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:22px;height:22px;fill:white;">
               <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
@@ -146,15 +168,13 @@
         </div>
         <span class="logo-text">KKMP <span>Miji</span></span>
       </a>
-
       <ul class="nav-links" role="list">
         <li><a href="#hero">Beranda</a></li>
-        <li><a href="#tentang">Tentang Kami</a></li>
-        <li><a href="#program">Program</a></li>
-        <li><a href="#footer">Kontak</a></li>
-        <li><a href="#cta" class="nav-cta">Bergabung</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#struktur">Organisasi</a></li>
+        <li><a href="#potensi">Unit Usaha</a></li>
+        <li><a href="#kontak-langsung" class="nav-cta">Kontak</a></li>
       </ul>
-
       <button class="hamburger" id="hamburgerBtn" aria-label="Buka atau tutup menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
@@ -162,86 +182,71 @@
   </nav>
 
   <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menu Mobile">
-    <a href="#hero"      class="mobile-nav-link">Beranda</a>
-    <a href="#tentang"   class="mobile-nav-link">Tentang Kami</a>
-    <a href="#asta-cita" class="mobile-nav-link">Asta Cita</a>
-    <a href="#program"   class="mobile-nav-link">Program</a>
-    <a href="#footer"    class="mobile-nav-link">Kontak</a>
+    <a href="#hero"            class="mobile-nav-link">Beranda</a>
+    <a href="#tentang"         class="mobile-nav-link">Tentang Kami</a>
+    <a href="#visi-misi"       class="mobile-nav-link">Visi &amp; Misi</a>
+    <a href="#struktur"        class="mobile-nav-link">Struktur Organisasi</a>
+    <a href="#potensi"         class="mobile-nav-link">Unit Usaha</a>
+    <a href="#target"          class="mobile-nav-link">Target 5 Tahun</a>
+    <a href="#kontak-langsung" class="mobile-nav-link">Kontak</a>
   </div>
 
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section id="hero" aria-labelledby="hero-title">
     <div class="container" style="display:contents;">
-
-      <div class="hero-left container" style="display:block; width:90%; max-width:1160px; margin:0 auto; padding-right:0;">
-        <div class="hero-badge">
-          <span class="dot"></span>
-          Koperasi Aktif &bull; Berdampak Nyata
-        </div>
+      <div class="hero-left container" style="display:block;width:90%;max-width:1160px;margin:0 auto;padding-right:0;">
+        <div class="hero-badge"><span class="dot"></span>Resmi Berdiri 27 Mei 2025 &bull; Kota Mojokerto</div>
         <h1 class="hero-title" id="hero-title">
-          Modal Usaha,<br/>
-          Sembako Murah,<br/>
-          <span class="accent">untuk Warga Miji</span>
+          Gerai Sembako<br/>&amp; Layanan<br/><span class="accent">Warga Miji</span>
         </h1>
         <p class="hero-subtitle">
-          KKMP Miji hadir di Kelurahan Miji sebagai koperasi yang memberikan
-          akses <strong>simpan pinjam modal usaha</strong>, distribusi
-          <strong>sembako harga terjangkau</strong>, dan pendampingan UMKM
-          — langsung untuk warga, tanpa birokrasi rumit.
+          KKMP Miji adalah <strong>Koperasi Kelurahan Merah Putih</strong> yang menyediakan
+          kebutuhan pokok, distribusi energi, dan layanan pembayaran digital
+          langsung untuk warga Kelurahan Miji — mudah, terjangkau, dan terpercaya.
         </p>
         <div class="hero-actions">
-          <a href="#tentang" class="btn-primary">
-            Kenali Kami Lebih Dekat
+          <a href="#potensi" class="btn-primary">Lihat Unit Usaha Kami
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#program" class="btn-outline">Lihat Program</a>
+          <a href="#kontak-langsung" class="btn-outline">Hubungi Kami</a>
         </div>
         <div class="hero-stats">
           <div class="stat-item">
-            <div class="stat-num">65<span>+</span></div>
-            <div class="stat-label">Anggota Aktif</div>
+            <div class="stat-num">65</div>
+            <div class="stat-label">Anggota Koperasi</div>
           </div>
           <div class="stat-item">
-            <div class="stat-num">Dummy<span>+</span></div>
-            <div class="stat-label">Unit Usaha Binaan</div>
+            <div class="stat-num">2025</div>
+            <div class="stat-label">Tahun Berdiri</div>
           </div>
           <div class="stat-item">
-            <div class="stat-num">8</div>
-            <div class="stat-label">Fokus Asta Cita</div>
+            <div class="stat-num">3<span>+</span></div>
+            <div class="stat-label">Unit Usaha</div>
           </div>
         </div>
       </div>
-
-      <!-- FOTO HERO — Upload "foto-koperasi.jpg" ke GitHub untuk mengganti placeholder -->
-      <div class="hero-right" style="padding:80px 40px 80px 0; flex:1; min-width:280px;">
+      <div class="hero-right" style="padding:80px 40px 80px 0;flex:1;min-width:280px;">
         <div class="hero-image-wrap">
-          <img
-            src="foto-koperasi.jpg"
-            alt="Foto kegiatan Koperasi Kelurahan Merah Putih KKMP Miji"
-            width="520"
-            height="580"
-            style="object-fit:cover;"
-            onerror="this.onerror=null;this.src='https://placehold.co/520x580/CC0000/FFFFFF?text=Upload+foto-koperasi.jpg+ke+GitHub&font=playfair-display';"
-          />
+          <img src="foto-koperasi.jpg" alt="Foto kegiatan KKMP Miji" width="520" height="580" style="object-fit:cover;"
+            onerror="this.onerror=null;this.src='https://placehold.co/520x580/CC0000/FFFFFF?text=KKMP+Miji&font=playfair-display';" />
           <div class="hero-float-card card-1">
             <div class="card-icon">📍</div>
             <div>
-              <div style="color:var(--gray-500); font-size:0.72rem; font-weight:400;">Berbasis di</div>
-              <div>Jl. Brawijaya 370-A, Miji</div>
+              <div style="color:var(--gray-500);font-size:.72rem;font-weight:400;">Alamat</div>
+              <div>Jl. Brawijaya No. 370A, Miji</div>
             </div>
           </div>
           <div class="hero-float-card card-2">
             <div class="card-icon">🤝</div>
             <div>
-              <div style="color:var(--gray-500); font-size:0.72rem; font-weight:400;">Ketua</div>
+              <div style="color:var(--gray-500);font-size:.72rem;font-weight:400;">Ketua</div>
               <div>Haris Saktiyanto</div>
             </div>
           </div>
           <div class="dots-pattern" aria-hidden="true"></div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -250,94 +255,150 @@
   <section id="tentang" aria-labelledby="tentang-title">
     <div class="container">
       <div class="about-grid">
-        <!-- ═══════════════════════════════════════════
-             SLIDESHOW 8 FOTO — Otomatis berganti tiap 4 detik
-             Upload 8 foto ke GitHub dengan nama:
-             foto-1.jpg, foto-2.jpg, ..., foto-8.jpg
-        ═══════════════════════════════════════════ -->
         <div class="about-image-wrap reveal">
           <div class="slideshow-wrap" id="slideshowWrap">
-
-            <!-- 8 Slide Foto — dibungkus track untuk animasi geser -->
             <div class="slides-track" id="slidesTrack">
-            <div class="slide active">
-              <img src="foto-1.jpg" alt="Kegiatan KKMP Miji 1"
-                onerror="this.src='https://placehold.co/540x600/CC0000/FFFFFF?text=foto-1.jpg&font=playfair-display'"/>
+              <div class="slide active"><img src="foto-1.jpg" alt="Kegiatan KKMP Miji 1" onerror="this.src='https://placehold.co/540x600/CC0000/FFFFFF?text=foto-1.jpg&font=playfair-display'"/></div>
+              <div class="slide"><img src="foto-2.jpg" alt="Kegiatan KKMP Miji 2" onerror="this.src='https://placehold.co/540x600/990000/FFFFFF?text=foto-2.jpg&font=playfair-display'"/></div>
+              <div class="slide"><img src="foto-3.jpg" alt="Kegiatan KKMP Miji 3" onerror="this.src='https://placehold.co/540x600/CC0000/FFFFFF?text=foto-3.jpg&font=playfair-display'"/></div>
+              <div class="slide"><img src="foto-4.jpg" alt="Kegiatan KKMP Miji 4" onerror="this.src='https://placehold.co/540x600/990000/FFFFFF?text=foto-4.jpg&font=playfair-display'"/></div>
+              <div class="slide"><img src="foto-5.jpg" alt="Kegiatan KKMP Miji 5" onerror="this.src='https://placehold.co/540x600/CC0000/FFFFFF?text=foto-5.jpg&font=playfair-display'"/></div>
+              <div class="slide"><img src="foto-6.jpg" alt="Kegiatan KKMP Miji 6" onerror="this.src='https://placehold.co/540x600/990000/FFFFFF?text=foto-6.jpg&font=playfair-display'"/></div>
+              <div class="slide"><img src="foto-7.jpg" alt="Kegiatan KKMP Miji 7" onerror="this.src='https://placehold.co/540x600/CC0000/FFFFFF?text=foto-7.jpg&font=playfair-display'"/></div>
+              <div class="slide"><img src="foto-8.jpg" alt="Kegiatan KKMP Miji 8" onerror="this.src='https://placehold.co/540x600/990000/FFFFFF?text=foto-8.jpg&font=playfair-display'"/></div>
             </div>
-            <div class="slide">
-              <img src="foto-2.jpg" alt="Kegiatan KKMP Miji 2"
-                onerror="this.src='https://placehold.co/540x600/990000/FFFFFF?text=foto-2.jpg&font=playfair-display'"/>
-            </div>
-            <div class="slide">
-              <img src="foto-3.jpg" alt="Kegiatan KKMP Miji 3"
-                onerror="this.src='https://placehold.co/540x600/CC0000/FFFFFF?text=foto-3.jpg&font=playfair-display'"/>
-            </div>
-            <div class="slide">
-              <img src="foto-4.jpg" alt="Kegiatan KKMP Miji 4"
-                onerror="this.src='https://placehold.co/540x600/990000/FFFFFF?text=foto-4.jpg&font=playfair-display'"/>
-            </div>
-            <div class="slide">
-              <img src="foto-5.jpg" alt="Kegiatan KKMP Miji 5"
-                onerror="this.src='https://placehold.co/540x600/CC0000/FFFFFF?text=foto-5.jpg&font=playfair-display'"/>
-            </div>
-            <div class="slide">
-              <img src="foto-6.jpg" alt="Kegiatan KKMP Miji 6"
-                onerror="this.src='https://placehold.co/540x600/990000/FFFFFF?text=foto-6.jpg&font=playfair-display'"/>
-            </div>
-            <div class="slide">
-              <img src="foto-7.jpg" alt="Kegiatan KKMP Miji 7"
-                onerror="this.src='https://placehold.co/540x600/CC0000/FFFFFF?text=foto-7.jpg&font=playfair-display'"/>
-            </div>
-            <div class="slide">
-              <img src="foto-8.jpg" alt="Kegiatan KKMP Miji 8"
-                onerror="this.src='https://placehold.co/540x600/990000/FFFFFF?text=foto-8.jpg&font=playfair-display'"/>
-            </div>
-            </div><!-- /slides-track -->
-
-            <!-- Tombol navigasi kiri/kanan -->
             <button class="slide-btn slide-prev" onclick="changeSlide(-1)" aria-label="Foto sebelumnya">&#8249;</button>
-            <button class="slide-btn slide-next" onclick="changeSlide(1)"  aria-label="Foto berikutnya">&#8250;</button>
-
-            <!-- Titik indikator -->
+            <button class="slide-btn slide-next" onclick="changeSlide(1)" aria-label="Foto berikutnya">&#8250;</button>
             <div class="slide-dots">
               <span class="dot-ind active" onclick="goToSlide(0)"></span>
-              <span class="dot-ind"        onclick="goToSlide(1)"></span>
-              <span class="dot-ind"        onclick="goToSlide(2)"></span>
-              <span class="dot-ind"        onclick="goToSlide(3)"></span>
-              <span class="dot-ind"        onclick="goToSlide(4)"></span>
-              <span class="dot-ind"        onclick="goToSlide(5)"></span>
-              <span class="dot-ind"        onclick="goToSlide(6)"></span>
-              <span class="dot-ind"        onclick="goToSlide(7)"></span>
+              <span class="dot-ind" onclick="goToSlide(1)"></span>
+              <span class="dot-ind" onclick="goToSlide(2)"></span>
+              <span class="dot-ind" onclick="goToSlide(3)"></span>
+              <span class="dot-ind" onclick="goToSlide(4)"></span>
+              <span class="dot-ind" onclick="goToSlide(5)"></span>
+              <span class="dot-ind" onclick="goToSlide(6)"></span>
+              <span class="dot-ind" onclick="goToSlide(7)"></span>
             </div>
           </div>
-
-          <!-- Lencana tahun berdiri -->
-          <div class="about-badge">
-            <div class="badge-num">2025</div>
-            <div class="badge-text">Tahun Berdiri</div>
+          <div class="about-badge"><div class="badge-num">2025</div><div class="badge-text">Tahun Berdiri</div></div>
+        </div>
+        <div class="about-content reveal" style="transition-delay:.15s;">
+          <span class="section-tag">Tentang Kami</span>
+          <h2 class="section-title" id="tentang-title">Koperasi Rakyat<br/>dari <span>Kelurahan Miji</span></h2>
+          <p class="about-lead">
+            KKMP Miji (Koperasi Kelurahan Merah Putih) resmi berdiri pada <strong>27 Mei 2025</strong>
+            atas inisiasi Dinas Koperasi, UMKM, Perindustrian dan Perdagangan Kota Mojokerto.
+            Di bawah kepemimpinan <strong>Haris Saktiyanto</strong> selaku Ketua, KKMP Miji
+            berkomitmen menjadi pusat layanan ekonomi masyarakat berbasis gotong royong.
+          </p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;">
+            <div class="vmv-item" style="flex-direction:column;gap:4px;">
+              <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500);">Alamat</div>
+              <div style="font-size:.88rem;font-weight:600;color:var(--dark);">Jl. Brawijaya No. 370A<br/>Kel. Miji, Kec. Kranggan</div>
+            </div>
+            <div class="vmv-item" style="flex-direction:column;gap:4px;">
+              <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500);">Pengampu</div>
+              <div style="font-size:.88rem;font-weight:600;color:var(--dark);">Dinas Koperasi &amp; UMKM<br/>Kota Mojokerto</div>
+            </div>
+            <div class="vmv-item" style="flex-direction:column;gap:4px;">
+              <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500);">Unit Usaha</div>
+              <div style="font-size:.88rem;font-weight:600;color:var(--dark);">Gerai Sembako &amp; Layanan Digital</div>
+            </div>
+            <div class="vmv-item" style="flex-direction:column;gap:4px;">
+              <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500);">Anggota</div>
+              <div style="font-size:.88rem;font-weight:600;color:var(--dark);">65 Anggota</div>
+            </div>
           </div>
         </div>
-        <div class="about-content reveal" style="transition-delay:0.15s;">
-          <span class="section-tag">Tentang Kami</span>
-          <h2 class="section-title" id="tentang-title">
-            Koperasi Rakyat<br/>dari <span>Kelurahan Miji</span>
-          </h2>
-          <p class="about-lead">
-            KKMP Miji (Koperasi Kelurahan Merah Putih) lahir dari semangat gotong royong
-            warga Kelurahan Miji untuk bersama-sama membangun perekonomian lokal yang
-            mandiri dan berdaulat. Di bawah kepemimpinan <strong>Haris Saktiyanto</strong>
-            selaku Ketua, KKMP Miji terus tumbuh menjadi pilar ekonomi kerakyatan yang
-            nyata di Kota Mojokerto.
-          </p>
-          <div class="vmv-list">
-            <div class="vmv-item">
-              <div><h4>Visi</h4><p>Menjadi koperasi kelurahan terdepan yang mendorong kemandirian ekonomi rakyat, swasembada usaha, dan kesejahteraan seluruh warga Miji selaras cita-cita nasional.</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- VISI & MISI -->
+  <section id="visi-misi" aria-labelledby="vm-title">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
+        <span class="section-tag">Arah &amp; Tujuan</span>
+        <h2 class="section-title" id="vm-title">Visi, Misi &amp;<br/><span>Tujuan Strategi</span></h2>
+      </div>
+      <div class="vm-grid reveal-stagger">
+        <div class="vm-card">
+          <div class="vm-card-label">&#127919; Visi</div>
+          <h3>"Menjadi Koperasi Modern, Mandiri, dan Berkelanjutan"</h3>
+          <p>Yang mendorong kesejahteraan anggota serta mendukung ekonomi kerakyatan berbasis gotong royong di Kelurahan Miji, Kota Mojokerto.</p>
+        </div>
+        <div class="vm-card">
+          <div class="vm-card-label">&#128640; Misi</div>
+          <h3>Empat Pilar Misi Kami</h3>
+          <ul class="misi-list">
+            <li>Meningkatkan kesejahteraan ekonomi anggota koperasi</li>
+            <li>Mendorong pemberdayaan UMKM dan pengembangan ekonomi lokal</li>
+            <li>Meningkatkan kapasitas manajemen SDM koperasi secara modern</li>
+            <li>Membangun jaringan kemitraan strategis dengan instansi terkait</li>
+          </ul>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:32px;">
+        <div style="background:var(--off-white);border-radius:20px;padding:36px 32px;">
+          <div class="vm-card-label" style="margin-bottom:20px;">&#9889; Tujuan Strategi</div>
+          <div class="tujuan-grid">
+            <div class="tujuan-item">
+              <span class="tujuan-icon">&#128200;</span>
+              <p><strong>Meningkatkan Kesejahteraan Ekonomi Anggota</strong> melalui pengembangan unit usaha produktif yang dikelola secara profesional dan transparan.</p>
             </div>
-            <div class="vmv-item">
-              <div><h4>Misi</h4><p>Memberdayakan anggota melalui simpan pinjam, pengembangan UMKM, dan kemitraan usaha yang adil demi mewujudkan Indonesia Emas 2045.</p></div>
+            <div class="tujuan-item">
+              <span class="tujuan-icon">&#127981;</span>
+              <p><strong>Mendorong Pemberdayaan UMKM dan Produk Lokal</strong> dengan memberikan dukungan dan akses pasar bagi pelaku usaha lokal.</p>
             </div>
-            <div class="vmv-item">
-              <div><h4>Nilai Utama</h4><p>Gotong royong, transparansi, keadilan, dan keberpihakan pada anggota menjadi fondasi setiap langkah KKMP Miji.</p></div>
+            <div class="tujuan-item">
+              <span class="tujuan-icon">&#128187;</span>
+              <p><strong>Meningkatkan Tata Kelola Koperasi</strong> melalui digitalisasi manajemen dan peningkatan kapasitas sumber daya manusia koperasi.</p>
+            </div>
+            <div class="tujuan-item">
+              <span class="tujuan-icon">&#129309;</span>
+              <p><strong>Memperluas Jejaring dan Kerjasama Strategis</strong> dengan instansi pemerintah, dunia usaha, dan mitra terkait.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- STRUKTUR ORGANISASI -->
+  <section id="struktur" aria-labelledby="struktur-title">
+    <div class="container">
+      <div class="struktur-header reveal">
+        <span class="section-tag">Kelembagaan</span>
+        <h2 class="section-title" id="struktur-title">Struktur <span>Organisasi</span></h2>
+        <p style="color:var(--gray-500);margin-top:12px;font-size:.95rem;">Dirancang untuk memastikan pengelolaan koperasi berjalan secara efektif, transparan, dan akuntabel.</p>
+      </div>
+      <div class="struktur-img-wrap reveal">
+        <!-- Upload struktur-organisasi.jpg ke GitHub untuk menggantikan bagan HTML ini -->
+        <img src="struktur-organisasi.jpg" alt="Struktur Organisasi KKMP Miji"
+          style="max-width:100%;border-radius:12px;display:block;margin:0 auto;"
+          onerror="this.style.display='none';document.getElementById('orgFallback').style.display='block';" />
+        <div id="orgFallback" style="display:none;">
+          <p style="text-align:center;color:var(--gray-500);font-size:.85rem;margin-bottom:32px;">Upload <code>struktur-organisasi.jpg</code> ke GitHub untuk mengganti bagan ini</p>
+          <div class="org-chart">
+            <div class="org-level">
+              <div class="org-box pengawas"><div class="org-role">Unsur Pengawas</div><div class="org-name">Ketua Pengawas</div></div>
+              <div class="org-box pengawas"><div class="org-role">Unsur Pengawas</div><div class="org-name">Anggota Pengawas</div></div>
+            </div>
+            <div class="org-line"></div>
+            <div class="org-level">
+              <div class="org-box primary"><div class="org-role">Ketua KKMP</div><div class="org-name">Haris Saktiyanto</div></div>
+            </div>
+            <div class="org-line"></div>
+            <div class="org-level" style="gap:32px;">
+              <div class="org-box secondary"><div class="org-role">Sekretaris</div><div class="org-name">—</div></div>
+              <div class="org-box secondary"><div class="org-role">Bendahara</div><div class="org-name">—</div></div>
+            </div>
+            <div class="org-line"></div>
+            <div class="org-level" style="gap:32px;">
+              <div class="org-box secondary"><div class="org-role">Wakil Ketua</div><div class="org-name">Bidang Anggota</div></div>
+              <div class="org-box secondary"><div class="org-role">Wakil Ketua</div><div class="org-name">Bidang Usaha</div></div>
             </div>
           </div>
         </div>
@@ -350,9 +411,9 @@
   <section id="asta-cita" aria-labelledby="asta-title">
     <div class="container">
       <div class="asta-header reveal">
-        <span class="section-tag" style="background:rgba(204,0,0,0.25); color:#FF6B6B; border-color:rgba(204,0,0,0.3);">Landasan Kami</span>
+        <span class="section-tag" style="background:rgba(204,0,0,.25);color:#FF6B6B;border-color:rgba(204,0,0,.3);">Landasan Kami</span>
         <h2 class="section-title" id="asta-title">Selaras dengan<br/><span>Asta Cita</span> Presiden</h2>
-        <p>Seluruh program KKMP Miji berlandaskan pada 8 Cita-Cita (Asta Cita) Presiden Prabowo Subianto sebagai kompas gerak kami.</p>
+        <p>Seluruh program KKMP Miji berlandaskan pada 8 Cita-Cita (Asta Cita) Presiden Prabowo Subianto.</p>
       </div>
       <div class="asta-grid reveal-stagger">
         <div class="asta-card"><div class="asta-num">01</div><h4>Memperkokoh Ideologi Pancasila &amp; Demokrasi</h4><p>Membangun fondasi bangsa yang kuat berlandaskan Pancasila, UUD 1945, dan semangat kebhinekaan.</p></div>
@@ -361,89 +422,213 @@
         <div class="asta-card"><div class="asta-num">04</div><h4>Memperkuat Pembangunan SDM Unggul</h4><p>Investasi pada pendidikan, kesehatan, dan karakter anak bangsa demi generasi emas 2045.</p></div>
         <div class="asta-card"><div class="asta-num">05</div><h4>Hilirisasi &amp; Industrialisasi Nasional</h4><p>Mendorong nilai tambah sumber daya alam dalam negeri agar manfaatnya dirasakan rakyat.</p></div>
         <div class="asta-card"><div class="asta-num">06</div><h4>Membangun dari Desa &amp; Daerah Terdepan</h4><p>Pemerataan pembangunan hingga ke daerah tertinggal, terdepan, dan terluar.</p></div>
-        <div class="asta-card"><div class="asta-num">07</div><h4>Keadilan bagi Seluruh Rakyat Indonesia</h4><p>Mewujudkan sistem hukum dan ekonomi yang adil serta berpihak pada kepentingan rakyat banyak.</p></div>
+        <div class="asta-card"><div class="asta-num">07</div><h4>Keadilan bagi Seluruh Rakyat Indonesia</h4><p>Mewujudkan sistem hukum dan ekonomi yang adil serta berpihak pada kepentingan rakyat.</p></div>
         <div class="asta-card"><div class="asta-num">08</div><h4>Reformasi Politik, Hukum &amp; Birokrasi</h4><p>Membangun tata kelola pemerintahan yang bersih, transparan, dan berorientasi pada pelayanan.</p></div>
       </div>
     </div>
   </section>
 
 
-  <!-- PROGRAM -->
-  <section id="program" aria-labelledby="program-title">
+  <!-- POTENSI PENGEMBANGAN USAHA -->
+  <section id="potensi" aria-labelledby="potensi-title">
     <div class="container">
-      <div class="program-header reveal">
-        <div>
-          <span class="section-tag">Program Utama</span>
-          <h2 class="section-title" id="program-title">Apa yang Kami<br/><span>Kerjakan?</span></h2>
-        </div>
-        <p>Kami merancang program yang solutif, terukur, dan berdampak langsung bagi anggota koperasi dan warga Kelurahan Miji, Kota Mojokerto.</p>
+      <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto;">
+        <span class="section-tag">Unit Usaha</span>
+        <h2 class="section-title" id="potensi-title">Potensi <span>Pengembangan Usaha</span></h2>
+        <p style="color:var(--gray-500);margin-top:14px;font-size:.95rem;">KKMP Miji memiliki posisi strategis dalam menyediakan berbagai layanan ekonomi yang dibutuhkan warga secara langsung.</p>
       </div>
-      <div class="program-grid reveal-stagger">
-        <div class="prog-card">
-          <div class="prog-icon">💰</div><h3>Simpan Pinjam</h3>
-          <p>Layanan simpan pinjam untuk membantu anggota mengakses modal usaha dengan bunga ringan dan proses yang mudah.</p>
-          <a href="#" class="prog-link">Pelajari Lebih Lanjut <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <div class="potensi-grid reveal-stagger">
+        <div class="potensi-card">
+          <div class="potensi-icon">&#128722;</div>
+          <h4>Gerai Sembako</h4>
+          <p>Unit usaha utama koperasi yang menyediakan kebutuhan pokok warga dengan harga stabil dan terjangkau, didukung jaringan distributor yang kuat.</p>
         </div>
-        <div class="prog-card">
-          <div class="prog-icon">🛒</div><h3>Unit Usaha Warung</h3>
-          <p>Pengelolaan warung sembako koperasi sebagai pusat distribusi kebutuhan pokok warga dengan harga terjangkau dan stabil.</p>
-          <a href="#" class="prog-link">Pelajari Lebih Lanjut <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="potensi-card">
+          <div class="potensi-icon">&#127806;</div>
+          <h4>Distribusi Pangan Bersubsidi</h4>
+          <p>Berperan sebagai distributor kebutuhan pokok masyarakat, mendukung program stabilisasi harga pangan di tingkat kelurahan.</p>
         </div>
-        <div class="prog-card">
-          <div class="prog-icon">💼</div><h3>Pemberdayaan UMKM</h3>
-          <p>Pendampingan dan permodalan bagi pelaku UMKM anggota koperasi, termasuk pelatihan manajemen usaha dan pemasaran digital.</p>
-          <a href="#" class="prog-link">Pelajari Lebih Lanjut <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="potensi-card">
+          <div class="potensi-icon">&#128293;</div>
+          <h4>Distribusi Energi Rumah Tangga</h4>
+          <p>Kemitraan distribusi LPG bersubsidi untuk memastikan kebutuhan energi rumah tangga terpenuhi secara mudah, aman, dan tepat sasaran.</p>
         </div>
-        <div class="prog-card">
-          <div class="prog-icon">🌾</div><h3>Ketahanan Pangan</h3>
-          <p>Inisiatif ketahanan pangan lokal melalui distribusi sembako murah, budidaya urban farming, dan pengelolaan bank benih komunitas.</p>
-          <a href="#" class="prog-link">Pelajari Lebih Lanjut <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="potensi-card">
+          <div class="potensi-icon">&#128241;</div>
+          <h4>Layanan Pembayaran Digital</h4>
+          <p>Pusat layanan transaksi keuangan dan pembayaran digital bagi warga, termasuk pembayaran pajak daerah dan tagihan utilitas.</p>
+        </div>
+        <div class="potensi-card">
+          <div class="potensi-icon">&#128187;</div>
+          <h4>Digitalisasi Layanan Koperasi</h4>
+          <p>Sistem transaksi, pencatatan keuangan, dan administrasi koperasi berbasis digital untuk efisiensi dan transparansi yang lebih baik.</p>
+        </div>
+        <div class="potensi-card">
+          <div class="potensi-icon">&#128101;</div>
+          <h4>Penguatan Keanggotaan</h4>
+          <p>Mendorong partisipasi aktif warga Kelurahan Miji untuk bergabung sebagai anggota dan merasakan manfaat ekonomi bersama.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- STRATEGI PENGEMBANGAN USAHA -->
+  <section id="strategi" aria-labelledby="strategi-title">
+    <div class="container">
+      <div class="strategi-header reveal">
+        <span class="section-tag" style="background:rgba(204,0,0,.25);color:#FF6B6B;border-color:rgba(204,0,0,.3);">Rencana Aksi</span>
+        <h2 class="section-title" id="strategi-title">Strategi <span>Pengembangan Usaha</span></h2>
+        <p>Enam strategi konkret KKMP Miji untuk mewujudkan koperasi yang kuat dan berkelanjutan.</p>
+      </div>
+      <div class="strategi-grid reveal-stagger">
+        <div class="strategi-card">
+          <div class="strategi-num">01</div>
+          <h4>Penguatan Unit Usaha Gerai Sembako</h4>
+          <p>Meningkatkan kapasitas stok, memperluas jenis produk, dan menjaga stabilitas harga kebutuhan pokok masyarakat secara konsisten.</p>
+        </div>
+        <div class="strategi-card">
+          <div class="strategi-num">02</div>
+          <h4>Pengembangan Distribusi Pangan Bersubsidi</h4>
+          <p>Memperluas peran sebagai distributor kebutuhan pokok untuk mendukung program stabilisasi harga pangan di tingkat kelurahan.</p>
+        </div>
+        <div class="strategi-card">
+          <div class="strategi-num">03</div>
+          <h4>Penguatan Distribusi Energi Rumah Tangga</h4>
+          <p>Meningkatkan kapasitas layanan distribusi LPG bersubsidi agar kebutuhan energi masyarakat terpenuhi lebih mudah dan aman.</p>
+        </div>
+        <div class="strategi-card">
+          <div class="strategi-num">04</div>
+          <h4>Pengembangan Layanan Pembayaran Digital</h4>
+          <p>Mengembangkan layanan transaksi dan pembayaran digital sehingga koperasi menjadi pusat layanan keuangan warga setempat.</p>
+        </div>
+        <div class="strategi-card">
+          <div class="strategi-num">05</div>
+          <h4>Digitalisasi Layanan Koperasi</h4>
+          <p>Mendorong digitalisasi sistem transaksi, keuangan, dan administrasi koperasi untuk efisiensi dan transparansi pengelolaan.</p>
+        </div>
+        <div class="strategi-card">
+          <div class="strategi-num">06</div>
+          <h4>Peningkatan Jumlah Anggota</h4>
+          <p>Secara aktif mendorong partisipasi warga bergabung sebagai anggota agar manfaat ekonomi koperasi dirasakan seluas-luasnya.</p>
         </div>
       </div>
     </div>
   </section>
 
 
-  <!-- CTA -->
-  <section id="cta" aria-labelledby="cta-title">
+  <!-- TARGET 5 TAHUN -->
+  <section id="target" aria-labelledby="target-title">
     <div class="container">
-      <div class="cta-box reveal">
-        <div class="cta-text">
-          <span class="section-tag">Bergabung Sekarang</span>
-          <h2 class="section-title" id="cta-title">Jadilah Anggota<br/><span>KKMP Miji</span></h2>
-          <p>Bergabunglah dan rasakan manfaat nyata koperasi bersama warga Kelurahan Miji.</p>
-        </div>
-        <a href="mailto:kkmp.miji@gmail.com" class="cta-btn">
-          Hubungi Kami
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+      <div class="target-header reveal">
+        <span class="section-tag">Roadmap</span>
+        <h2 class="section-title" id="target-title">Target Pengembangan <span>5 Tahun</span></h2>
+        <p style="color:var(--gray-500);margin-top:12px;font-size:.95rem;">Tahapan capaian strategis KKMP Miji dari 2025 hingga 2029.</p>
+      </div>
+      <div class="target-table-wrap reveal">
+        <table class="target-table">
+          <thead>
+            <tr><th>Tahun</th><th>Sasaran Utama</th><th>Indikator Keberhasilan</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025</td>
+              <td>Penguatan Fondasi Organisasi &amp; Partisipasi Anggota</td>
+              <td><ul class="target-bullets">
+                <li>Terbentuk legalitas koperasi dan struktur organisasi lengkap</li>
+                <li>Sosialisasi dan peningkatan keanggotaan aktif</li>
+                <li>Pelatihan dasar koperasi untuk pengurus dan anggota</li>
+                <li>Terbentuk 1 unit usaha koperasi (Gerai Sembako)</li>
+              </ul></td>
+            </tr>
+            <tr>
+              <td>2026</td>
+              <td>Peningkatan Aset &amp; Penguatan Pengembangan Usaha</td>
+              <td><ul class="target-bullets">
+                <li>Nilai total aset koperasi meningkat</li>
+                <li>Tersusunnya SOP operasional usaha koperasi</li>
+                <li>Penambahan bidang usaha baru</li>
+              </ul></td>
+            </tr>
+            <tr>
+              <td>2027</td>
+              <td>Ekspansi Kemitraan &amp; Pemberdayaan Sosial</td>
+              <td><ul class="target-bullets">
+                <li>Terjalinnya kemitraan strategis dengan pihak eksternal</li>
+                <li>Program sosial koperasi berjalan secara rutin</li>
+                <li>Penambahan bidang usaha koperasi baru</li>
+              </ul></td>
+            </tr>
+            <tr>
+              <td>2028</td>
+              <td>Konsolidasi Kelembagaan &amp; Penguatan Sistem Digital</td>
+              <td><ul class="target-bullets">
+                <li>Seluruh administrasi koperasi terdigitalisasi</li>
+                <li>Sistem pelaporan otomatis dan transparan untuk anggota</li>
+                <li>Penambahan bidang usaha koperasi</li>
+              </ul></td>
+            </tr>
+            <tr>
+              <td>2029</td>
+              <td>Evaluasi Menyeluruh &amp; Ekspansi Usaha Berbasis Anggota</td>
+              <td><ul class="target-bullets">
+                <li>Evaluasi tahunan lengkap (organisasi, keuangan, pelayanan)</li>
+                <li>Terselenggaranya forum anggota tahunan</li>
+                <li>Sistem bagi hasil atau insentif anggota yang transparan</li>
+              </ul></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
 
-  <!-- E-KATALOG CTA -->
-  <section id="ekatalog" aria-labelledby="ekatalog-title">
+  <!-- CTA E-KATALOG -->
+  <section id="cta-katalog" aria-labelledby="katalog-title">
     <div class="container">
-      <div class="ekatalog-inner reveal">
-        <div class="ekatalog-icon" aria-hidden="true">🛍️</div>
-        <h2 class="section-title" id="ekatalog-title">
-          Jelajahi Produk dan<br/><span>Karya Kami</span>
-        </h2>
-        <p>Temukan daftar lengkap produk, layanan, dan karya unggulan KKMP Miji — semuanya tersedia di E-Katalog kami.</p>
-        <a
-          href="https://e-katalog-kkmp-miji.vercel.app/#"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="ekatalog-btn"
-        >
+      <div class="katalog-box reveal">
+        <div class="katalog-text">
+          <span class="section-tag">Belanja Sekarang</span>
+          <h2 class="section-title" id="katalog-title">Jelajahi Produk<br/><span>E-Katalog Kami</span></h2>
+          <p>Lihat daftar lengkap produk dan layanan KKMP Miji — dari sembako, distribusi energi, hingga layanan pembayaran digital.</p>
+        </div>
+        <a href="https://e-katalog-kkmp-miji.vercel.app/#" target="_blank" rel="noopener noreferrer" class="katalog-btn">
           Kunjungi E-Katalog
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-            <polyline points="15 3 21 3 21 9"/>
-            <line x1="10" y1="14" x2="21" y2="3"/>
-          </svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
         </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- KONTAK LANGSUNG -->
+  <section id="kontak-langsung" aria-labelledby="kontak-title">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto;">
+        <span class="section-tag">Hubungi Kami</span>
+        <h2 class="section-title" id="kontak-title">Ada Pertanyaan?<br/><span>Kami Siap Membantu</span></h2>
+        <p style="color:var(--gray-500);margin-top:12px;">Hubungi pengurus KKMP Miji langsung melalui saluran berikut.</p>
+      </div>
+      <div class="kontak-grid reveal-stagger">
+        <div class="kontak-card">
+          <span class="k-icon">&#128222;</span>
+          <h4>WhatsApp / Telepon</h4>
+          <a href="https://wa.me/6285755335535?text=Halo%20KKMP%20Miji%2C%20saya%20ingin%20bertanya." target="_blank" rel="noopener noreferrer">+62 857-5533-5535</a>
+          <span class="k-sub">Haris Saktiyanto — Ketua KKMP Miji<br/>Klik untuk buka WhatsApp</span>
+        </div>
+        <div class="kontak-card">
+          <span class="k-icon">&#9993;&#65039;</span>
+          <h4>Email</h4>
+          <a href="mailto:kopmerahputihmiji@gmail.com">kopmerahputihmiji<br/>@gmail.com</a>
+          <span class="k-sub">Respons dalam 1x24 jam kerja</span>
+        </div>
+        <div class="kontak-card">
+          <span class="k-icon">&#128205;</span>
+          <h4>Kunjungi Langsung</h4>
+          <a href="https://maps.google.com/?q=Jl.+Brawijaya+No.+370A,+Kelurahan+Miji,+Kranggan,+Kota+Mojokerto" target="_blank" rel="noopener noreferrer">Jl. Brawijaya No. 370A</a>
+          <span class="k-sub">Kel. Miji, Kec. Kranggan<br/>Kota Mojokerto, Jawa Timur</span>
+        </div>
       </div>
     </div>
   </section>
@@ -453,113 +638,65 @@
   <footer id="footer" aria-label="Footer KKMP Miji">
     <div class="container">
       <div class="footer-grid">
-
         <div class="footer-brand">
           <div class="logo-text">KKMP <span>Miji</span></div>
-          <p>Koperasi Kelurahan Merah Putih (KKMP) Miji — Kel. Miji, Kec. Kranggan, Kota Mojokerto. Bersatu membangun ekonomi kerakyatan yang berdaulat.</p>
+          <p>Koperasi Kelurahan Merah Putih (KKMP) Miji — Kel. Miji, Kec. Kranggan, Kota Mojokerto. Pusat layanan ekonomi warga berbasis gotong royong.</p>
           <div class="social-links" aria-label="Media Sosial KKMP Miji">
-
-            <!-- INSTAGRAM — sudah aktif tersambung -->
             <a href="https://www.instagram.com/kmp_kelurahan_miji/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram KKMP Miji">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
-
-            <!-- Facebook -->
             <a href="#" class="social-link" aria-label="Facebook KKMP Miji">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-
-            <!-- Twitter/X -->
-            <a href="#" class="social-link" aria-label="Twitter KKMP Miji">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
-
-            <!-- YouTube -->
             <a href="#" class="social-link" aria-label="YouTube KKMP Miji">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
           </div>
         </div>
-
         <div class="footer-col">
           <h5>Kontak</h5>
           <div class="contact-list">
             <div class="contact-item">
-              <span class="ci-icon">👤</span>
-              <span>
-                <strong style="color:rgba(255,255,255,0.85);">Haris Saktiyanto</strong><br/>
-                Ketua KKMP Miji
-              </span>
+              <span class="ci-icon">&#128100;</span>
+              <span><strong style="color:rgba(255,255,255,.85);">Haris Saktiyanto</strong><br/>Ketua KKMP Miji</span>
             </div>
             <div class="contact-item">
-              <span class="ci-icon">📍</span>
-              <span>Jl. Brawijaya 370-A, Kel. Miji, Kec. Kranggan, Kota Mojokerto</span>
+              <span class="ci-icon">&#128222;</span>
+              <a href="https://wa.me/6285755335535" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.55);">+62 857-5533-5535</a>
             </div>
             <div class="contact-item">
-              <span class="ci-icon">✉️</span>
-              <span>kopmerahputihmiji@gmail.com</span>
+              <span class="ci-icon">&#9993;&#65039;</span>
+              <a href="mailto:kopmerahputihmiji@gmail.com" style="color:rgba(255,255,255,.55);">kopmerahputihmiji@gmail.com</a>
             </div>
             <div class="contact-item">
-              <span class="ci-icon">📞</span>
-              <span>‪+62 857‑5533‑5535‬</span>
+              <span class="ci-icon">&#128205;</span>
+              <a href="https://maps.google.com/?q=Jl.+Brawijaya+No.+370A,+Kelurahan+Miji,+Kranggan,+Kota+Mojokerto" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.55);">Jl. Brawijaya No. 370A, Kel. Miji, Kec. Kranggan, Kota Mojokerto</a>
             </div>
           </div>
         </div>
-
       </div>
-
       <div class="footer-bottom">
-        <span>© 2025 KKMP Miji — Koperasi Kelurahan Merah Putih. Hak Cipta Dilindungi.</span>
-        <span>Dirancang dengan ❤️ untuk Miji &mdash; <a href="#">Kebijakan Privasi</a></span>
+        <span>&copy; 2025 KKMP Miji &mdash; Koperasi Kelurahan Merah Putih. Hak Cipta Dilindungi.</span>
+        <span>Dirancang untuk warga Kelurahan Miji</span>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
   <script>
-    /* ── SLIDESHOW LOGIC — animasi geser horizontal ── */
-    (function() {
-      var current = 0;
-      var total   = 8;
-      var timer;
-      var track   = document.getElementById('slidesTrack');
-      var dots    = document.querySelectorAll('.dot-ind');
-
-      function showSlide(n) {
-        current = (n + total) % total;
-        // Geser track secara horizontal
-        track.style.transform = 'translateX(-' + (current * 12.5) + '%)';
-        // Update titik indikator
-        dots.forEach(function(d, i) {
-          d.classList.toggle('active', i === current);
-        });
+    (function(){
+      var current=0,total=8,timer;
+      var track=document.getElementById('slidesTrack');
+      var dots=document.querySelectorAll('.dot-ind');
+      function showSlide(n){
+        current=(n+total)%total;
+        if(track)track.style.transform='translateX(-'+(current*12.5)+'%)';
+        dots.forEach(function(d,i){d.classList.toggle('active',i===current);});
       }
-
-      window.changeSlide = function(dir) {
-        showSlide(current + dir);
-        resetTimer();
-      };
-
-      window.goToSlide = function(n) {
-        showSlide(n);
-        resetTimer();
-      };
-
-      function resetTimer() {
-        clearInterval(timer);
-        timer = setInterval(function() { showSlide(current + 1); }, 4000);
-      }
-
-      // Autoplay tiap 4 detik
-      timer = setInterval(function() { showSlide(current + 1); }, 4000);
+      window.changeSlide=function(dir){showSlide(current+dir);reset();};
+      window.goToSlide=function(n){showSlide(n);reset();};
+      function reset(){clearInterval(timer);timer=setInterval(function(){showSlide(current+1);},4000);}
+      timer=setInterval(function(){showSlide(current+1);},4000);
     })();
   </script>
 </body>
